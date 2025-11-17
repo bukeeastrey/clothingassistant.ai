@@ -1,0 +1,136 @@
+# Cloth Assistant — General Documentation
+
+This document explains **what the Cloth Assistant is**, **how it works**, and **how people can use or contribute to it**, without going into technical details.
+
+---
+
+## 📌 What is the Cloth Assistant?
+
+The **Cloth Assistant** is an automated WhatsApp-based shopping helper that makes buying clothes faster, easier, and more organized.
+
+A user can:
+
+* Send a picture or description of the clothing they want.
+* Receive automated replies guiding them through options.
+* Get responses instantly because the bot is fully automated.
+* Avoid manual searching on different websites.
+
+The system uses AI to understand images, text, colors, styles, and preferences.
+
+---
+
+## 🎯 Main Purpose
+
+The Cloth Assistant solves three major problems:
+
+1. **People waste time searching for clothes online.**
+2. **Buyers struggle to compare prices from different sellers.**
+3. **Clothing stores miss customers because they don’t respond fast enough.**
+
+The bot solves these by giving quick, automated answers.
+
+---
+
+## 💡 What Makes It Different?
+
+* Works entirely on WhatsApp.
+* Responds automatically — no human needed.
+* Can handle images (e.g., "find similar shirts to this picture").
+* Learns user preferences over time.
+* Supports multiple languages, including Nigerian Pidgin.
+
+---
+
+## 🤖 How the Bot Behaves
+
+The bot has a simple, friendly personality:
+
+* Polite
+* Fast to respond
+* Gives the user clear options
+* Never overwhelms them with too many choices
+
+It can:
+
+* Ask clarifying questions
+* Provide options based on user requests
+* Send follow‑up suggestions (e.g., new arrivals, price alerts)
+* Understand natural language ("I need something for a wedding on Saturday")
+
+---
+
+## 📲 How a User Interacts With the Bot
+
+### **1. User says “Hi”**
+
+Bot replies with a friendly welcome.
+
+### **2. Bot provides simple options**
+
+Examples:
+
+* "Send a picture of what you want 🖼️"
+* "Tell me the clothing type (polo, jeans, gown, sneakers, etc.)"
+* “Do you want something cheap, mid‑range, or premium?”
+
+### **3. Assistant analyzes request**
+
+Using its AI models, the bot:
+
+* Identifies the clothing (style, color, gender, brand, pattern)
+* Compares with available vendor information
+* Provides options in a clean format
+
+### **4. User chooses a direction**
+
+From there, the bot continues smoothly until the buyer finds what they want.
+
+---
+
+## 🧵 Clothing Types Supported
+
+The assistant is not limited to just polo and jeans.
+It supports **ALL** major categories, including:
+
+* Polo, T-shirts, shirts
+* Jeans, trousers, shorts
+* Hoodies, sweaters, jackets
+* Native wear
+* Sneakers, slides, shoes
+* Bags, caps, accessories
+* Dresses, gowns, ladies’ tops
+
+And more.
+
+---
+
+## 🏪 Vendor System (Internal)
+
+Vendors are registered manually for now.
+The bot automatically:
+
+* Sends product requests to vendors,
+* Collects their replies,
+
+This process is fully automated.
+
+---
+
+## 📚 Future Features
+
+These will be added later:
+
+1. Personalization
+
+   * Bot can greet users by first name.
+   * Personalized clothing recommendations.
+
+2. Recommendation Engine
+
+   * AI suggests styles the user might like.
+
+3. Multi-language expansion
+
+   * Yoruba, Igbo, Hausa, French.
+
+---
