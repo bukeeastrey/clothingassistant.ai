@@ -1,0 +1,188 @@
+# Cloth Assistant — Developer Documentation
+
+## Overview
+
+This document provides the technical details for developers contributing to the Cloth Assistant project. It covers the system architecture, tech stack, data flow, bot logic, and coding standards.
+
+---
+
+## 1. System Architecture
+
+### **Core Components**
+
+* **WhatsApp Bot** — powered through WhatsApp Cloud API.
+* **Backend Server (Python / Flask or FastAPI)** — processes messages, calls AI model, and manages business logic.
+* **Vector Database (optional future)** — stores labeled vendor data, image data, and embeddings for faster AI search.
+* **OpenAI LLM** — used for pattern recognition, conversation handling, and classification.
+
+### **High-Level Flow**
+
+1. User sends a message/photo to WhatsApp.
+2. Message is received via webhook by backend.
+3. Backend cleans/validates input.
+4. Backend sends query to OpenAI for:
+
+   * Classification
+   * Pattern matching
+   * Search query generation
+   * Conversation response
+5. Backend returns guided responses (option format too).
+
+---
+
+## 2. Technology Stack
+
+### **Backend**
+
+* Python 3.12+
+* FastAPI or Flask
+* `python-dotenv`
+* `openai` 1.x SDK
+* `requests` for WhatsApp Cloud API
+
+### **Database (optional)**
+
+* PostgreSQL or MongoDB
+* Pinecone / ChromaDB for embeddings
+
+### **Dev Tools**
+
+* Git & GitHub
+* VS Code
+* Ngrok (for local webhook testing)
+
+---
+
+## 3. Bot Messaging Logic
+
+### **Standardized Bot Response Format**
+
+Every message from bot should follow a consistent structure:
+
+* Short friendly greeting
+* Simple explanation
+* Provide exactly response or options.
+
+Example:
+
+```
+Got it! What would you like to do next?
+1️⃣ Found a polo that fits you
+2️⃣ See similar outfits
+3️⃣ Compare prices
+```
+
+---
+
+## 4. Training Data Structure
+
+### **Dataset Types Needed**
+
+1. **User Intent Dataset**
+
+   * Examples of messages & their meaning
+   * Includes Pidgin, English, slang, locals
+
+2. **Product Attribute Dataset**
+
+   * fabric types, qualities, color terms, sizing
+
+3. **Vendor Data**
+
+   * response examples converted into structured format
+
+4. **Conversation Flow Examples**
+
+   * multi-turn samples
+
+### **Recommended Format (JSONL)**
+
+```
+{"input": "I need fine polo", "intent": "find_item", "category": "polo"}
+{"input": "how much last price?", "intent": "negotiate"}
+{"input": "I wan see better jeans", "intent": "find_item", "category": "jeans"}
+```
+
+---
+
+## 5. API Structure
+
+### **WhatsApp Webhook Endpoint**
+
+* `POST /webhook`
+* Receives messages, attachments, and user metadata
+
+### **Message Sending Endpoint**
+
+* Internal function calling:
+
+  * [https://graph.facebook.com/v19.0/YOUR_NUMBER/messages](https://graph.facebook.com/v19.0/YOUR_NUMBER/messages)
+
+### **AI Processing Function**
+
+```
+def process_message(user_input):
+    classification = classify_intent(user_input)
+    response = generate_bot_reply(classification)
+    return response
+```
+
+---
+
+## 6. Project Folder Structure
+
+```
+my-cloth-assistant/
+│   app.py
+│   README.md
+│   .gitignore
+│   .env.example
+│
+├── data/
+│   intents.jsonl
+│   training_samples.jsonl
+│
+├── services/
+│   ai_handler.py
+│   whatsapp.py
+│
+└── docs/
+    developer.md
+    user_guide.md
+```
+
+---
+
+## 7. Coding Standards
+
+* Use snake_case for variables and functions.
+* One responsibility per function.
+* Write docstrings for every function.
+* Separate business logic from model prompts.
+* Never hardcode API keys.
+
+---
+
+## 8. How to Run Project
+
+```
+# install packages
+pip install -r requirements.txt
+
+# start server
+python app.py
+```
+
+---
+
+## 9. How to Contribute
+
+* Create a feature branch
+* Make changes
+* Create PR on GitHub
+* Document any new feature in /docs
+* Tag issues with labels
+
+---
+
+## End
